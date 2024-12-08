@@ -3,7 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface counterState{
     value: number
 }
+interface multiplicationSate{
+    value:number
+}
 
+const initialMultiplication:multiplicationSate={
+    value:10
+}
 
 const initialState:counterState ={
     value:0
@@ -21,6 +27,23 @@ const counterSlice = createSlice({
         },
         incrementByAmount:(state,action:PayloadAction<number>)=>{
             state.value = state.value + action.payload
+        }
+    }
+})
+
+const multiplication = createSlice({
+    name: 'multiplication',
+    initialState:initialMultiplication,
+    reducers: {
+        times5:(state)=>{
+            state.value = state.value *5
+        },
+        times10:(state)=>{
+            state.value = state.value *10
+        },
+        timesAmount:(state,action:PayloadAction<number>)=>{
+            state.value = state.value * action.payload
+
         }
     }
 })
