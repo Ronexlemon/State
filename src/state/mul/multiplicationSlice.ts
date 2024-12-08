@@ -18,9 +18,12 @@ const multiplication = createSlice({
         timesAmount:(state,action:PayloadAction<number>)=>{
             state.value = state.value * action.payload
 
+        },
+        timesIt:(state)=>{
+            state.value = state.value * state.value
         }
     }
 })
-export const{times10,times5,timesAmount} = multiplication.actions;
+export const{times10,times5,timesAmount,timesIt} = multiplication.actions;
 
 export default multiplication.reducer
